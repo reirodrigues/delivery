@@ -1,4 +1,5 @@
 import 'package:delivery_flutter/src/pages/login/login_page.dart';
+import 'package:delivery_flutter/src/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,10 +42,8 @@ class _MyAppState extends State<MyApp> {
       title: 'Delivery',
       initialRoute: '/',
       getPages: [
-        GetPage(
-          name: '/',
-          page: (() => const LoginPage()),
-        ),
+        GetPage(name: '/', page: (() => LoginPage())),
+        GetPage(name: '/register', page: (() => const RegisterPage())),
       ],
       navigatorKey: Get.key,
     );

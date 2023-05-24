@@ -1,7 +1,11 @@
+import 'package:delivery_flutter/src/pages/login/login_controler.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginController loginController = Get.put(LoginController());
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -138,25 +142,28 @@ class LoginPage extends StatelessWidget {
 
   // PRIVATE
   Widget _textDontHaveAccount() {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
+        const Text(
           'Não tem uma conta ?',
           style: TextStyle(
             color: Colors.black,
             fontSize: 17,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 7,
         ),
-        Text(
-          'Cadastre-se!',
-          style: TextStyle(
-            color: Colors.amber,
-            fontWeight: FontWeight.bold,
-            fontSize: 17,
+        GestureDetector(
+          onTap: () => loginController.goToRegisterPage(),
+          child: const Text(
+            'Cadastre-se!',
+            style: TextStyle(
+              color: Colors.amber,
+              fontWeight: FontWeight.bold,
+              fontSize: 17,
+            ),
           ),
         ),
       ],
